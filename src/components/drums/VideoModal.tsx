@@ -31,7 +31,7 @@ export function VideoModal({ videoId, title, onClose }: VideoModalProps) {
       role="dialog"
       aria-modal="true"
       aria-label={title}
-      className="fixed inset-0 z-100 flex items-center justify-center bg-background/97 p-4 sm:p-8"
+      className="fixed inset-0 z-100 flex items-center justify-center bg-black p-4 sm:p-8"
     >
       <button
         type="button"
