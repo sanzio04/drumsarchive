@@ -129,13 +129,13 @@ export const SERVICES = [
 ];
 
 export const COLLABORATORS = [
-  { name: "AI Cinefest", src: LOGOS.aicinefest },
+  { name: "AI Cinefest", src: aicinefestWhite.url },
   { name: "Hailuo AI", src: LOGOS.hailuo },
-  { name: "Huawei", src: LOGOS.huawei },
+  { name: "Huawei", src: huaweiMark.url },
   { name: "Fixnet", src: LOGOS.fixnet },
-  { name: "Dreamina", src: LOGOS.dreamina },
+  { name: "Dreamina", src: dreaminaMark.url },
   { name: "Introverse", src: LOGOS.introverse },
-  { name: "M Bloc", src: LOGOS.mbloc },
+  { name: "M Bloc", src: mblocMark.url },
   { name: "Kalypso Perfume", src: LOGOS.kalypso },
 ];
 
