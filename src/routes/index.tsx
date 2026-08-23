@@ -75,8 +75,9 @@ function Index() {
           </video>
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/60"
+            className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-background/10"
           />
+
           <div className="relative z-10 mx-auto w-full max-w-[1500px]">
             <img
               src={LOGOS.drums}
