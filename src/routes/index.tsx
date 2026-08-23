@@ -69,14 +69,15 @@ function Index() {
             playsInline
             preload="auto"
             aria-hidden="true"
-            className="absolute inset-0 -z-10 h-full w-full object-cover"
+            className="absolute inset-0 z-0 h-full w-full object-cover"
           >
             <source src={showreelAsset.url} type="video/mp4" />
           </video>
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-background/10"
+            className="absolute inset-0 z-[1] bg-gradient-to-t from-background via-background/45 to-background/10"
           />
+
 
           <div className="relative z-10 mx-auto w-full max-w-[1500px]">
             <img
