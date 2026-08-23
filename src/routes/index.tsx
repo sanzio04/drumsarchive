@@ -221,8 +221,9 @@ function Index() {
               Ideas Without Production Limits
             </h2>
             <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-              From a single concept to a complete cinematic world, DRUMS creates AI-powered visual
-              experiences built to move audiences and brands forward.
+              As audiences demand more distinctive visual experiences, DRUMS enables brands and
+              businesses to create advanced AI film campaigns with greater creative freedom, faster
+              execution, and cinematic impact.
             </p>
             <ul className="mt-16">
               {SERVICES.map((service) => (
