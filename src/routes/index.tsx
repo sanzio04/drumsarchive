@@ -294,7 +294,7 @@ function Index() {
                 href={MAILTO}
                 className="text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
               >
-                reachout.drums@gmail.com
+                archivedrums@gmail.com
               </a>
             </div>
           </div>
