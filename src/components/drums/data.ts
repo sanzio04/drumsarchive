@@ -1,11 +1,12 @@
 import aicinefest from "@/assets/aicinefest.jpg.asset.json";
 import hailuo from "@/assets/hailuo-ai.jpg.asset.json";
-import huawei from "@/assets/huawei.jpg.asset.json";
-import dreamina from "@/assets/dreamina.jpg.asset.json";
+import huawei from "@/assets/huawei-logo.png.asset.json";
+import dreamina from "@/assets/dreamina-logo.png.asset.json";
 import introverse from "@/assets/introverse.jpg.asset.json";
 import kalypso from "@/assets/kalypso.png.asset.json";
 import fixnet from "@/assets/fixnet.png.asset.json";
-import mbloc from "@/assets/mbloc.jpg.asset.json";
+import mbloc from "@/assets/mbloc-logo.png.asset.json";
+import homebody from "@/assets/homebody.png.asset.json";
 import drumsLogo from "@/assets/drums-logo-white-transparent.png.asset.json";
 
 export const LOGOS = {
@@ -18,6 +19,7 @@ export const LOGOS = {
   kalypso: kalypso.url,
   fixnet: fixnet.url,
   mbloc: mbloc.url,
+  homebody: homebody.url,
 };
 
 export const WHATSAPP_URL =

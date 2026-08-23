@@ -159,11 +159,11 @@ function Index() {
             <Reveal className="mt-12 grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:gap-16">
               <div className="relative aspect-video w-full overflow-hidden border border-line bg-black">
                 <img
-                  src={LOGOS.aicinefest}
-                  alt="Homebody — AI Cinefest cover"
+                  src={LOGOS.homebody}
+                  alt="Homebody — AI short film still"
                   loading="lazy"
                   decoding="async"
-                  className="h-full w-full object-contain p-8 sm:p-16"
+                  className="h-full w-full object-cover"
                 />
               </div>
               <div className="flex flex-col justify-center">
@@ -221,8 +221,9 @@ function Index() {
               Ideas Without Production Limits
             </h2>
             <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-              From a single concept to a complete cinematic world, DRUMS creates AI-powered visual
-              experiences built to move audiences and brands forward.
+              As audiences demand more distinctive visual experiences, DRUMS enables brands and
+              businesses to create advanced AI film campaigns with greater creative freedom, faster
+              execution, and cinematic impact.
             </p>
             <ul className="mt-16">
               {SERVICES.map((service) => (
@@ -293,7 +294,7 @@ function Index() {
                 href={MAILTO}
                 className="text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
               >
-                reachout.drums@gmail.com
+                archivedrums@gmail.com
               </a>
             </div>
           </div>
