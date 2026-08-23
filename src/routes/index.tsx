@@ -62,11 +62,22 @@ function Index() {
       <main>
         {/* HERO */}
         <section className="grain relative flex min-h-[100svh] flex-col justify-end overflow-hidden px-5 pb-14 pt-32 sm:px-8">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 h-full w-full object-cover"
+          >
+            <source src={showreelAsset.url} type="video/mp4" />
+          </video>
           <div
             aria-hidden
-            className="pointer-events-none absolute -top-1/3 left-1/2 h-[80vh] w-[80vh] -translate-x-1/2 rounded-full bg-white/6 blur-[120px]"
+            className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/60"
           />
-          <div className="relative mx-auto w-full max-w-[1500px]">
+          <div className="relative z-10 mx-auto w-full max-w-[1500px]">
             <img
               src={LOGOS.drums}
               alt="DRUMS"
@@ -79,17 +90,12 @@ function Index() {
               <br />
               Impossible
             </h1>
-            <div className="mt-10 grid gap-10 border-t border-line pt-8 lg:grid-cols-[1.1fr_1fr] lg:items-end">
-              <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <div className="mt-10 grid gap-10 border-t border-line/60 pt-8 lg:grid-cols-[1.1fr_1fr] lg:items-end">
+              <p className="max-w-xl text-base leading-relaxed text-foreground/80 sm:text-lg">
                 Advanced AI films, campaigns, and visual worlds created beyond the limits of
                 traditional production.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-                <OutlineButton
-                  onClick={() => setVideo({ id: SHOWREEL_ID, title: "DRUMS Showreel" })}
-                >
-                  Watch Showreel
-                </OutlineButton>
                 <SolidButton href={WHATSAPP_URL} target="_blank" rel="noreferrer noopener">
                   Start an AI Production
                 </SolidButton>
@@ -97,6 +103,7 @@ function Index() {
             </div>
           </div>
         </section>
+
 
         {/* ABOUT */}
         <section id="about" className="border-t border-line px-5 py-24 sm:px-8 sm:py-32">
