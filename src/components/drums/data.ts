@@ -1,13 +1,18 @@
 import aicinefest from "@/assets/aicinefest.jpg.asset.json";
+import aicinefestWhite from "@/assets/aicinefest-white.png.asset.json";
 import hailuo from "@/assets/hailuo-ai.jpg.asset.json";
 import huawei from "@/assets/huawei-logo.png.asset.json";
+import huaweiMark from "@/assets/huawei-mark.png.asset.json";
 import dreamina from "@/assets/dreamina-logo.png.asset.json";
+import dreaminaMark from "@/assets/dreamina-mark.png.asset.json";
 import introverse from "@/assets/introverse.jpg.asset.json";
 import kalypso from "@/assets/kalypso.png.asset.json";
 import fixnet from "@/assets/fixnet.png.asset.json";
 import mbloc from "@/assets/mbloc-logo.png.asset.json";
+import mblocMark from "@/assets/mbloc-mark.png.asset.json";
 import homebody from "@/assets/homebody.png.asset.json";
 import drumsLogo from "@/assets/drums-logo-white-transparent.png.asset.json";
+
 
 export const LOGOS = {
   drums: drumsLogo.url,
@@ -124,13 +129,13 @@ export const SERVICES = [
 ];
 
 export const COLLABORATORS = [
-  { name: "AI Cinefest", src: LOGOS.aicinefest },
+  { name: "AI Cinefest", src: aicinefestWhite.url },
   { name: "Hailuo AI", src: LOGOS.hailuo },
-  { name: "Huawei", src: LOGOS.huawei },
+  { name: "Huawei", src: huaweiMark.url },
   { name: "Fixnet", src: LOGOS.fixnet },
-  { name: "Dreamina", src: LOGOS.dreamina },
+  { name: "Dreamina", src: dreaminaMark.url },
   { name: "Introverse", src: LOGOS.introverse },
-  { name: "M Bloc", src: LOGOS.mbloc },
+  { name: "M Bloc", src: mblocMark.url },
   { name: "Kalypso Perfume", src: LOGOS.kalypso },
 ];
 
