@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import showreelAsset from "@/assets/showreel.mp4.asset.json";
 import { Nav } from "@/components/drums/Nav";
 import { ProjectCard } from "@/components/drums/ProjectCard";
 import { VideoModal } from "@/components/drums/VideoModal";
@@ -12,10 +13,10 @@ import {
   MAILTO,
   PROJECTS,
   SERVICES,
-  SHOWREEL_ID,
   STATS,
   WHATSAPP_URL,
 } from "@/components/drums/data";
+
 
 const TITLE = "DRUMS — Advanced AI Video Generation Agency";
 const DESCRIPTION =
