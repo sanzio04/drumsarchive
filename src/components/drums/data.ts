@@ -13,6 +13,7 @@ import hailuoMark from "@/assets/hailuo-mark.png.asset.json";
 import mbloc from "@/assets/mbloc-logo.png.asset.json";
 import mblocMark from "@/assets/mbloc-mark.png.asset.json";
 import homebody from "@/assets/homebody.png.asset.json";
+import provenImpactThumbnail from "@/assets/proven-impact-thumbnail.jpg.asset.json";
 import drumsLogo from "@/assets/drums-logo-white-transparent.png.asset.json";
 
 
