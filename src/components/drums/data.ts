@@ -8,6 +8,8 @@ import dreaminaMark from "@/assets/dreamina-mark.png.asset.json";
 import introverse from "@/assets/introverse.jpg.asset.json";
 import kalypso from "@/assets/kalypso.png.asset.json";
 import fixnet from "@/assets/fixnet.png.asset.json";
+import fixnetMark from "@/assets/fixnet-mark.png.asset.json";
+import hailuoMark from "@/assets/hailuo-mark.png.asset.json";
 import mbloc from "@/assets/mbloc-logo.png.asset.json";
 import mblocMark from "@/assets/mbloc-mark.png.asset.json";
 import homebody from "@/assets/homebody.png.asset.json";
