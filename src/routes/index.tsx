@@ -273,7 +273,9 @@ function Index() {
                     alt={logo.name}
                     loading="lazy"
                     decoding="async"
-                    className="max-h-full max-w-full object-contain opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0"
+                    className={`max-h-full max-w-full object-contain opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0 ${
+                      logo.invert ? "invert" : ""
+                    }`}
                   />
                 </div>
               ))}
