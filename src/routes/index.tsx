@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { Volume2, VolumeX } from "lucide-react";
 import showreelAsset from "@/assets/showreel.mp4.asset.json";
 import { Nav } from "@/components/drums/Nav";
 import { ProjectCard } from "@/components/drums/ProjectCard";
@@ -54,6 +55,20 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [video, setVideo] = useState<{ id: string; title: string } | null>(null);
+  const heroVideoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  const toggleSound = () => {
+    const el = heroVideoRef.current;
+    if (!el) return;
+    const next = !muted;
+    el.muted = next;
+    if (!next) {
+      el.volume = 1;
+      void el.play();
+    }
+    setMuted(next);
+  };
 
   return (
     <div id="top" className="min-h-screen bg-background text-foreground">
@@ -63,6 +78,7 @@ function Index() {
         {/* HERO */}
         <section className="grain relative flex min-h-[100svh] flex-col justify-end overflow-hidden px-5 pb-14 pt-32 sm:px-8">
           <video
+            ref={heroVideoRef}
             autoPlay
             muted
             loop
@@ -77,6 +93,16 @@ function Index() {
             aria-hidden
             className="absolute inset-0 z-[1] bg-gradient-to-t from-background via-background/45 to-background/10"
           />
+          <button
+            type="button"
+            onClick={toggleSound}
+            aria-label={muted ? "Turn showreel sound on" : "Turn showreel sound off"}
+            aria-pressed={!muted}
+            className="absolute right-5 top-24 z-20 flex items-center gap-2 border border-foreground/40 bg-background/40 px-4 py-2 text-[0.6875rem] uppercase tracking-[0.2em] text-foreground backdrop-blur-sm transition-colors hover:bg-foreground hover:text-background sm:right-8"
+          >
+            {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+            {muted ? "Sound On" : "Sound Off"}
+          </button>
 
 
           <div className="relative z-10 mx-auto w-full max-w-[1500px]">
@@ -273,7 +299,9 @@ function Index() {
                     alt={logo.name}
                     loading="lazy"
                     decoding="async"
-                    className="max-h-full max-w-full object-contain opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0"
+                    className={`max-h-full max-w-full object-contain opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0 ${
+                      logo.invert ? "invert" : ""
+                    }`}
                   />
                 </div>
               ))}

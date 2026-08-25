@@ -8,6 +8,8 @@ import dreaminaMark from "@/assets/dreamina-mark.png.asset.json";
 import introverse from "@/assets/introverse.jpg.asset.json";
 import kalypso from "@/assets/kalypso.png.asset.json";
 import fixnet from "@/assets/fixnet.png.asset.json";
+import fixnetMark from "@/assets/fixnet-mark.png.asset.json";
+import hailuoMark from "@/assets/hailuo-mark.png.asset.json";
 import mbloc from "@/assets/mbloc-logo.png.asset.json";
 import mblocMark from "@/assets/mbloc-mark.png.asset.json";
 import homebody from "@/assets/homebody.png.asset.json";
@@ -128,11 +130,11 @@ export const SERVICES = [
   },
 ];
 
-export const COLLABORATORS = [
+export const COLLABORATORS: { name: string; src: string; invert?: boolean }[] = [
   { name: "AI Cinefest", src: aicinefestWhite.url },
-  { name: "Hailuo AI", src: LOGOS.hailuo },
+  { name: "Hailuo AI", src: hailuoMark.url, invert: true },
   { name: "Huawei", src: huaweiMark.url },
-  { name: "Fixnet", src: LOGOS.fixnet },
+  { name: "Fixnet", src: fixnetMark.url },
   { name: "Dreamina", src: dreaminaMark.url },
   { name: "Introverse", src: LOGOS.introverse },
   { name: "M Bloc", src: mblocMark.url },
