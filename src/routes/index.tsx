@@ -54,6 +54,20 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [video, setVideo] = useState<{ id: string; title: string } | null>(null);
+  const heroVideoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  const toggleSound = () => {
+    const el = heroVideoRef.current;
+    if (!el) return;
+    const next = !muted;
+    el.muted = next;
+    if (!next) {
+      el.volume = 1;
+      void el.play();
+    }
+    setMuted(next);
+  };
 
   return (
     <div id="top" className="min-h-screen bg-background text-foreground">
