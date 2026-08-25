@@ -128,11 +128,11 @@ export const SERVICES = [
   },
 ];
 
-export const COLLABORATORS = [
+export const COLLABORATORS: { name: string; src: string; invert?: boolean }[] = [
   { name: "AI Cinefest", src: aicinefestWhite.url },
-  { name: "Hailuo AI", src: LOGOS.hailuo },
+  { name: "Hailuo AI", src: hailuoMark.url, invert: true },
   { name: "Huawei", src: huaweiMark.url },
-  { name: "Fixnet", src: LOGOS.fixnet },
+  { name: "Fixnet", src: fixnetMark.url },
   { name: "Dreamina", src: dreaminaMark.url },
   { name: "Introverse", src: LOGOS.introverse },
   { name: "M Bloc", src: mblocMark.url },
