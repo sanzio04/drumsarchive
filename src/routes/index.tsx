@@ -77,6 +77,7 @@ function Index() {
         {/* HERO */}
         <section className="grain relative flex min-h-[100svh] flex-col justify-end overflow-hidden px-5 pb-14 pt-32 sm:px-8">
           <video
+            ref={heroVideoRef}
             autoPlay
             muted
             loop
@@ -91,6 +92,16 @@ function Index() {
             aria-hidden
             className="absolute inset-0 z-[1] bg-gradient-to-t from-background via-background/45 to-background/10"
           />
+          <button
+            type="button"
+            onClick={toggleSound}
+            aria-label={muted ? "Turn showreel sound on" : "Turn showreel sound off"}
+            aria-pressed={!muted}
+            className="absolute right-5 top-24 z-20 flex items-center gap-2 border border-foreground/40 bg-background/40 px-4 py-2 text-[0.6875rem] uppercase tracking-[0.2em] text-foreground backdrop-blur-sm transition-colors hover:bg-foreground hover:text-background sm:right-8"
+          >
+            {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+            {muted ? "Sound On" : "Sound Off"}
+          </button>
 
 
           <div className="relative z-10 mx-auto w-full max-w-[1500px]">
