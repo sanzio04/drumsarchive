@@ -13,6 +13,7 @@ import hailuoMark from "@/assets/hailuo-mark.png.asset.json";
 import mbloc from "@/assets/mbloc-logo.png.asset.json";
 import mblocMark from "@/assets/mbloc-mark.png.asset.json";
 import homebody from "@/assets/homebody.png.asset.json";
+import provenImpactThumbnail from "@/assets/proven-impact-thumbnail.jpg.asset.json";
 import drumsLogo from "@/assets/drums-logo-white-transparent.png.asset.json";
 
 
@@ -153,5 +154,19 @@ export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Recognition", href: "#recognition" },
+  { label: "Impact", href: "#impact" },
   { label: "Contact", href: "#contact" },
 ];
+
+export const PROVEN_IMPACT = {
+  title: "Proven Impact",
+  headline: "1M+ Views",
+  thumbnail: provenImpactThumbnail.url,
+  thumbnailAlt: "Teaser test — Ape vs Orc raw battle",
+  stats: [
+    { value: "1,043,010", label: "Views" },
+    { value: "767,762", label: "Accounts Reached" },
+    { value: "17K", label: "Shares" },
+    { value: "10.6K", label: "Saves" },
+  ],
+};

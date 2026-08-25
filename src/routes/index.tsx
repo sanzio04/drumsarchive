@@ -13,6 +13,7 @@ import {
   LOGOS,
   MAILTO,
   PROJECTS,
+  PROVEN_IMPACT,
   SERVICES,
   STATS,
   WHATSAPP_URL,
@@ -246,6 +247,52 @@ function Index() {
                 </Reveal>
               ))}
             </ul>
+          </div>
+        </section>
+
+        {/* PROVEN IMPACT */}
+        <section id="impact" className="border-t border-line px-5 py-24 sm:px-8 sm:py-32">
+          <div className="mx-auto max-w-[1500px]">
+            <SectionLabel>Proven Impact</SectionLabel>
+            <div className="mt-12 grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+              <Reveal>
+                <div className="relative aspect-[16/10] w-full overflow-hidden border border-line bg-black">
+                  <img
+                    src={PROVEN_IMPACT.thumbnail}
+                    alt={PROVEN_IMPACT.thumbnailAlt}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <p className="mt-4 text-xs uppercase tracking-[0.16em] text-muted-foreground">
+                  Verified results from a single DRUMS campaign
+                </p>
+              </Reveal>
+              <div className="flex flex-col justify-center">
+                <Reveal>
+                  <h2 className="display text-[13vw] leading-none sm:text-6xl lg:text-7xl">
+                    {PROVEN_IMPACT.headline}
+                  </h2>
+                </Reveal>
+                <dl className="mt-10 grid grid-cols-2 gap-px">
+                  {PROVEN_IMPACT.stats.map((stat, i) => (
+                    <Reveal
+                      key={stat.label}
+                      delay={i * 80}
+                      className="border-t border-line py-6 first:border-t-0 sm:py-8"
+                    >
+                      <dt className="display text-[8vw] leading-none sm:text-4xl lg:text-5xl">
+                        {stat.value}
+                      </dt>
+                      <dd className="mt-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                        {stat.label}
+                      </dd>
+                    </Reveal>
+                  ))}
+                </dl>
+              </div>
+            </div>
           </div>
         </section>
 
