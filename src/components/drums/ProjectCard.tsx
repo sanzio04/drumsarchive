@@ -22,9 +22,6 @@ export function ProjectCard({ project }: { project: Project }) {
           decoding="async"
           className="h-full w-full object-contain p-10 transition-transform duration-700 group-hover:scale-[1.03] sm:p-14"
         />
-        <span className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-center bg-background/85 py-3 text-[0.65rem] uppercase tracking-[0.22em] text-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
-          View Project
-        </span>
       </div>
       <div className="flex items-start justify-between gap-4 border-b border-line py-5">
         <div>
