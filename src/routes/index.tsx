@@ -8,6 +8,7 @@ import { VideoModal } from "@/components/drums/VideoModal";
 import { OutlineButton, Reveal, SectionLabel, SolidButton } from "@/components/drums/ui";
 import {
   COLLABORATORS,
+  FESTIVAL_FILMS,
   HOMEBODY_ID,
   INSTAGRAM_URL,
   LOGOS,
@@ -192,7 +193,7 @@ function Index() {
         {/* FEATURED PROJECT */}
         <section id="work" className="border-t border-line px-5 py-24 sm:px-8 sm:py-32">
           <div className="mx-auto max-w-[1500px]">
-            <SectionLabel>Featured Project</SectionLabel>
+            <SectionLabel>Festival</SectionLabel>
             <Reveal className="mt-12 grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:gap-16">
               <div className="relative aspect-video w-full overflow-hidden border border-line bg-black">
                 <img
@@ -227,6 +228,37 @@ function Index() {
                 </div>
               </div>
             </Reveal>
+
+            <ul className="mt-20 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+              {FESTIVAL_FILMS.map((film, i) => (
+                <Reveal as="li" key={film.title} delay={(i % 3) * 90}>
+                  <button
+                    type="button"
+                    onClick={() => setVideo({ id: film.videoId, title: film.title })}
+                    className="group block w-full text-left"
+                  >
+                    <div className="relative aspect-video w-full overflow-hidden border border-line bg-black">
+                      <img
+                        src={film.thumbnail}
+                        alt={`${film.title} — AI film still`}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                    <div className="border-b border-line py-5">
+                      <h3 className="display text-lg sm:text-xl">{film.title}</h3>
+                      <p className="mt-2 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                        {film.category}
+                      </p>
+                    </div>
+                  </button>
+                </Reveal>
+              ))}
+            </ul>
+            <p className="mt-10 text-sm uppercase tracking-[0.2em] text-muted-foreground">
+              And more.
+            </p>
           </div>
         </section>
 

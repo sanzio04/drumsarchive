@@ -13,6 +13,9 @@ import hailuoMark from "@/assets/hailuo-mark.png.asset.json";
 import mbloc from "@/assets/mbloc-logo.png.asset.json";
 import mblocMark from "@/assets/mbloc-mark.png.asset.json";
 import homebody from "@/assets/homebody.png.asset.json";
+import kusadari from "@/assets/kusadari.jpg.asset.json";
+import terrestrial from "@/assets/terrestrial.png.asset.json";
+import imaxGetaway from "@/assets/imax-getaway.jpg.asset.json";
 import provenImpactThumbnail from "@/assets/proven-impact-thumbnail.jpg.asset.json";
 import drumsLogo from "@/assets/drums-logo-white-transparent.png.asset.json";
 
@@ -34,7 +37,35 @@ export const WHATSAPP_URL =
   "https://wa.me/6287760434653?text=Hi%20DRUMS%2C%20I%27d%20like%20to%20discuss%20an%20AI%20video%20project.";
 export const INSTAGRAM_URL = "https://www.instagram.com/drums.archive/";
 export const MAILTO = "mailto:archivedrums@gmail.com";
-export const HOMEBODY_ID = "S6Oi205lmVU";
+export const HOMEBODY_ID = "rLLMI7YvLiw";
+
+export type FestivalFilm = {
+  title: string;
+  category: string;
+  videoId: string;
+  thumbnail: string;
+};
+
+export const FESTIVAL_FILMS: FestivalFilm[] = [
+  {
+    title: "Kusadari",
+    category: "Finalist — AI Tell You Festival 2026",
+    videoId: "2xzW8h7wAio",
+    thumbnail: kusadari.url,
+  },
+  {
+    title: "Terrestrial: Living Inside the Earth",
+    category: "Villa Architectural Film",
+    videoId: "0q9Njo1p9aQ",
+    thumbnail: terrestrial.url,
+  },
+  {
+    title: "IMAX — Let's Get Away",
+    category: "Gen:48 Hours of AI Filmmaking",
+    videoId: "4Dx6mSkA4QA",
+    thumbnail: imaxGetaway.url,
+  },
+];
 
 
 export type Project = {
