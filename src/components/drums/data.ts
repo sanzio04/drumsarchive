@@ -185,7 +185,7 @@ export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Recognition", href: "#recognition" },
-  { label: "Impact", href: "#impact" },
+  
   { label: "Contact", href: "#contact" },
 ];
 
