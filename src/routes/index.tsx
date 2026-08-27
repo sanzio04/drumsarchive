@@ -192,7 +192,7 @@ function Index() {
         {/* FEATURED PROJECT */}
         <section id="work" className="border-t border-line px-5 py-24 sm:px-8 sm:py-32">
           <div className="mx-auto max-w-[1500px]">
-            <SectionLabel>Featured Project</SectionLabel>
+            <SectionLabel>Festival</SectionLabel>
             <Reveal className="mt-12 grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:gap-16">
               <div className="relative aspect-video w-full overflow-hidden border border-line bg-black">
                 <img
