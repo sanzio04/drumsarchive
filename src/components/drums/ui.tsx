@@ -1,18 +1,39 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import { cn } from "@/lib/utils";
 
-export function Reveal({
-  children,
-  className,
-  as: As = "div",
-  delay = 0,
-}: {
-  children: ReactNode;
-  className?: string;
-  as?: "div" | "section" | "li" | "article" | "header";
-  delay?: number;
-}) {
-  const ref = useRef<HTMLElement | null>(null);
+export function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReduced(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, []);
+  return reduced;
+}
+
+export function useCanHover() {
+  const [canHover, setCanHover] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const update = () => setCanHover(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, []);
+  return canHover;
+}
+
+/** Observes an element once and reports when it first enters the viewport. */
+export function useInView<T extends HTMLElement>(options?: IntersectionObserverInit) {
+  const ref = useRef<T | null>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -31,11 +52,27 @@ export function Reveal({
           }
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0.15, rootMargin: "0px 0px -8% 0px", ...options },
     );
     observer.observe(node);
     return () => observer.disconnect();
-  }, []);
+  }, [options]);
+
+  return { ref, visible };
+}
+
+export function Reveal({
+  children,
+  className,
+  as: As = "div",
+  delay = 0,
+}: {
+  children: ReactNode;
+  className?: string;
+  as?: "div" | "section" | "li" | "article" | "header" | "dl";
+  delay?: number;
+}) {
+  const { ref, visible } = useInView<HTMLElement>({ threshold: 0.12 });
 
   const Tag = As as "div";
   return (
@@ -50,20 +87,122 @@ export function Reveal({
   );
 }
 
+/** Reveals children (one per line) with a masked upward move and stagger. */
+export function MaskedLines({
+  lines,
+  className,
+  lineClassName,
+  stagger = 130,
+}: {
+  lines: ReactNode[];
+  className?: string;
+  lineClassName?: string;
+  stagger?: number;
+}) {
+  const { ref, visible } = useInView<HTMLDivElement>({ threshold: 0.2 });
+  return (
+    <span ref={ref} data-visible={visible} className={cn("block", className)}>
+      {lines.map((line, i) => (
+        <span key={i} className={cn("mask-line", lineClassName)}>
+          <span className="mask-line-inner" style={{ transitionDelay: `${i * stagger}ms` }}>
+            {line}
+          </span>
+        </span>
+      ))}
+    </span>
+  );
+}
+
+/** Thin divider that draws itself horizontally when scrolled into view. */
+export function AnimatedDivider({ className }: { className?: string }) {
+  const { ref, visible } = useInView<HTMLSpanElement>({ threshold: 0.4 });
+  return (
+    <span
+      ref={ref}
+      data-visible={visible}
+      aria-hidden
+      className={cn("line-grow block h-px w-full bg-line", className)}
+    />
+  );
+}
+
+/** Restrained magnetic pointer follow, desktop only, a few pixels max. */
+function useMagnetic<T extends HTMLElement>(strength = 6) {
+  const ref = useRef<T | null>(null);
+  const frame = useRef(0);
+  const canHover = useCanHover();
+  const reduced = usePrefersReducedMotion();
+  const enabled = canHover && !reduced;
+
+  const onMove = useCallback(
+    (event: React.PointerEvent<T>) => {
+      if (!enabled) return;
+      const node = ref.current;
+      if (!node) return;
+      const rect = node.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
+      const y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+      cancelAnimationFrame(frame.current);
+      frame.current = requestAnimationFrame(() => {
+        node.style.transform = `translate3d(${(x * strength).toFixed(2)}px, ${(y * strength).toFixed(2)}px, 0)`;
+      });
+    },
+    [enabled, strength],
+  );
+
+  const onLeave = useCallback(() => {
+    const node = ref.current;
+    cancelAnimationFrame(frame.current);
+    if (node) node.style.transform = "";
+  }, []);
+
+  useEffect(() => () => cancelAnimationFrame(frame.current), []);
+
+  return { ref, onPointerMove: onMove, onPointerLeave: onLeave };
+}
+
 const base =
-  "inline-flex items-center justify-center gap-2 px-7 py-4 text-[0.7rem] font-medium uppercase tracking-[0.18em] transition-colors duration-300";
+  "group relative inline-flex items-center justify-center gap-3 overflow-hidden px-7 py-4 text-[0.7rem] font-medium uppercase tracking-[0.18em] transition-[transform,color,border-color] duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)]";
+
+function Arrow() {
+  return (
+    <span
+      aria-hidden
+      className="inline-block transition-transform duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1"
+    >
+      &rarr;
+    </span>
+  );
+}
 
 export function SolidButton({
   children,
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"a"> & { children: ReactNode }) {
+  const magnetic = useMagnetic<HTMLAnchorElement>(6);
   return (
     <a
       {...props}
-      className={cn(base, "bg-foreground text-background hover:bg-muted-foreground", className)}
+      ref={magnetic.ref}
+      onPointerMove={magnetic.onPointerMove}
+      onPointerLeave={magnetic.onPointerLeave}
+      className={cn(base, "bg-foreground text-background", className)}
     >
-      {children}
+      <span
+        aria-hidden
+        className="absolute inset-0 origin-bottom scale-y-0 bg-background transition-transform duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100"
+      />
+      <span className="relative z-10 transition-colors duration-500 group-hover:text-foreground">
+        {children}
+      </span>
+      <span className="relative z-10 transition-colors duration-500 group-hover:text-foreground">
+        <Arrow />
+      </span>
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-0 border border-foreground opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+      />
     </a>
   );
 }
@@ -73,17 +212,26 @@ export function OutlineButton({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"button"> & { children: ReactNode }) {
+  const magnetic = useMagnetic<HTMLButtonElement>(5);
   return (
     <button
       type="button"
       {...props}
-      className={cn(
-        base,
-        "border border-foreground/40 text-foreground hover:border-foreground hover:bg-foreground hover:text-background",
-        className,
-      )}
+      ref={magnetic.ref}
+      onPointerMove={magnetic.onPointerMove}
+      onPointerLeave={magnetic.onPointerLeave}
+      className={cn(base, "border border-foreground/40 text-foreground hover:border-foreground", className)}
     >
-      {children}
+      <span
+        aria-hidden
+        className="absolute inset-0 origin-bottom scale-y-0 bg-foreground transition-transform duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100"
+      />
+      <span className="relative z-10 transition-colors duration-500 group-hover:text-background">
+        {children}
+      </span>
+      <span className="relative z-10 transition-colors duration-500 group-hover:text-background">
+        <Arrow />
+      </span>
     </button>
   );
 }
@@ -92,7 +240,7 @@ export function SectionLabel({ children }: { children: ReactNode }) {
   return (
     <div className="flex items-center gap-4">
       <span className="eyebrow">{children}</span>
-      <span className="h-px flex-1 bg-line" />
+      <AnimatedDivider className="flex-1" />
     </div>
   );
 }
