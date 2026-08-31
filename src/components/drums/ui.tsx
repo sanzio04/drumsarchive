@@ -244,3 +244,87 @@ export function SectionLabel({ children }: { children: ReactNode }) {
     </div>
   );
 }
+
+/** Counts a numeric stat up when it scrolls into view. Preserves suffixes like "K+". */
+export function CountUp({ value, duration = 1400 }: { value: string; duration?: number }) {
+  const { ref, visible } = useInView<HTMLSpanElement>({ threshold: 0.4 });
+  const reduced = usePrefersReducedMotion();
+  const match = /^(\d+(?:\.\d+)?)(.*)$/.exec(value.trim());
+  const target = match ? parseFloat(match[1]!) : null;
+  const suffix = match ? match[2]! : "";
+  const decimals = match && match[1]!.includes(".") ? 1 : 0;
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!visible || target === null || reduced) return;
+    let raf = 0;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setCurrent(target * eased);
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [visible, target, reduced, duration]);
+
+  if (target === null) {
+    return (
+      <span ref={ref} data-visible={visible} className="fade-up inline-block">
+        {value}
+      </span>
+    );
+  }
+
+  const shown = reduced || !visible ? (reduced ? target : 0) : current;
+  return (
+    <span ref={ref} className="inline-block tabular-nums">
+      {shown.toFixed(decimals)}
+      {suffix}
+    </span>
+  );
+}
+
+/** Slow vertical parallax offset for a media element, desktop + motion allowed only. */
+export function useParallax<T extends HTMLElement>(intensity = 40) {
+  const ref = useRef<T | null>(null);
+  const reduced = usePrefersReducedMotion();
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || reduced) return;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const rect = node.getBoundingClientRect();
+      const progress = (rect.top + rect.height / 2 - window.innerHeight / 2) / window.innerHeight;
+      node.style.setProperty("--parallax", `${(-progress * intensity).toFixed(2)}px`);
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      if (raf) cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [reduced, intensity]);
+
+  return ref;
+}
+
+/** Cinematic scroll-down cue for the hero. */
+export function ScrollCue({ className }: { className?: string }) {
+  return (
+    <div className={cn("flex items-center gap-4", className)} aria-hidden>
+      <span className="text-[0.625rem] uppercase tracking-[0.28em] text-foreground/60">Scroll</span>
+      <span className="relative h-10 w-px overflow-hidden bg-foreground/20">
+        <span className="scroll-cue absolute inset-x-0 top-0 h-4 bg-foreground/80" />
+      </span>
+    </div>
+  );
+}
