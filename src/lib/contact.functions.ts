@@ -31,7 +31,7 @@ export const sendContactInquiry = createServerFn({ method: "POST" })
         "X-Connection-Api-Key": resendKey,
       },
       body: JSON.stringify({
-        from: "DRUMS Website <onboarding@resend.dev>",
+        from: "DRUMS Website <inquiries@drumsarchives.dev>",
         to: ["archivedrums@gmail.com"],
         reply_to: data.email,
         subject: `New production inquiry — ${data.name}`,
