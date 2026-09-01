@@ -12,15 +12,18 @@ export type Service = {
 export function ServiceRow({
   service,
   expanded,
+  anyExpanded,
   onToggle,
 }: {
   service: Service;
   expanded: boolean;
+  anyExpanded?: boolean;
   onToggle: () => void;
 }) {
   const canHover = useCanHover();
   const [hovered, setHovered] = useState(false);
-  const open = canHover ? hovered || expanded : expanded;
+  const hoverOpen = canHover && hovered && !anyExpanded;
+  const open = hoverOpen || expanded;
 
   return (
     <div
