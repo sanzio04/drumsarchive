@@ -369,6 +369,7 @@ function Index() {
                 archivedrums@gmail.com
               </a>
             </div>
+            <ContactForm />
           </div>
         </section>
       </main>
