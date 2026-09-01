@@ -191,8 +191,14 @@
   animation: drums-modal-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+.marquee-viewport {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
 .marquee-viewport:hover .marquee-track,
-.marquee-viewport:focus-within .marquee-track {
+.marquee-viewport:focus-within .marquee-track,
+.marquee-viewport:active .marquee-track {
   animation-play-state: paused;
 }
 
