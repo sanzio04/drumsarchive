@@ -175,17 +175,23 @@ function Arrow() {
   );
 }
 
+type SolidButtonProps =
+  | ({ as?: "a" } & React.ComponentPropsWithoutRef<"a">)
+  | ({ as: "button" } & React.ComponentPropsWithoutRef<"button">);
+
 export function SolidButton({
   children,
   className,
+  as: As = "a",
   ...props
-}: React.ComponentPropsWithoutRef<"a"> & { children: ReactNode }) {
-  const magnetic = useMagnetic<HTMLAnchorElement>(6);
+}: SolidButtonProps & { children: ReactNode }) {
+  const magnetic = useMagnetic<HTMLElement>(6);
+  const Tag = As as "a";
   return (
-    <a
-      {...props}
-      ref={magnetic.ref}
-      onPointerMove={magnetic.onPointerMove}
+    <Tag
+      {...(props as React.ComponentPropsWithoutRef<"a">)}
+      ref={magnetic.ref as never}
+      onPointerMove={magnetic.onPointerMove as never}
       onPointerLeave={magnetic.onPointerLeave}
       className={cn(base, "bg-foreground text-background", className)}
     >
@@ -203,7 +209,7 @@ export function SolidButton({
         aria-hidden
         className="pointer-events-none absolute inset-0 border border-foreground opacity-0 transition-opacity duration-500 group-hover:opacity-100"
       />
-    </a>
+    </Tag>
   );
 }
 
