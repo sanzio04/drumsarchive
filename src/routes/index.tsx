@@ -133,7 +133,9 @@ function Index() {
                 </SolidButton>
               </div>
             </div>
+            <ScrollCue className="mt-10" />
           </div>
+
         </section>
 
 
