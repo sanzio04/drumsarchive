@@ -4,6 +4,7 @@ import { Volume2, VolumeX } from "lucide-react";
 import showreelAsset from "@/assets/showreel.mp4.asset.json";
 import { Nav } from "@/components/drums/Nav";
 import { ProjectCard } from "@/components/drums/ProjectCard";
+import { ServiceRow } from "@/components/drums/ServiceRow";
 import { VideoModal } from "@/components/drums/VideoModal";
 import { OutlineButton, Reveal, SectionLabel, SolidButton } from "@/components/drums/ui";
 import {
@@ -59,6 +60,7 @@ function Index() {
   const [video, setVideo] = useState<{ id: string; title: string } | null>(null);
   const heroVideoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
+  const [openService, setOpenService] = useState<string | null>(null);
 
   const toggleSound = () => {
     const el = heroVideoRef.current;
