@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 import showreelAsset from "@/assets/showreel.mp4.asset.json";
+import { ContactForm } from "@/components/drums/ContactForm";
 import { Nav } from "@/components/drums/Nav";
 import { ProjectCard } from "@/components/drums/ProjectCard";
 import { ServiceRow } from "@/components/drums/ServiceRow";
@@ -369,6 +370,7 @@ function Index() {
                 archivedrums@gmail.com
               </a>
             </div>
+            <ContactForm />
           </div>
         </section>
       </main>
