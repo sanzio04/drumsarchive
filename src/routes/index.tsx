@@ -7,7 +7,7 @@ import { Nav } from "@/components/drums/Nav";
 import { ProjectCard } from "@/components/drums/ProjectCard";
 import { ServiceRow } from "@/components/drums/ServiceRow";
 import { VideoModal } from "@/components/drums/VideoModal";
-import { CountUp, OutlineButton, Reveal, SectionLabel, SolidButton } from "@/components/drums/ui";
+import { CountUp, MaskedLines, OutlineButton, Reveal, ScrollCue, SectionLabel, SolidButton } from "@/components/drums/ui";
 import {
   COLLABORATORS,
   FESTIVAL_FILMS,
@@ -119,9 +119,8 @@ function Index() {
               className="h-8 w-auto object-contain sm:h-10"
             />
             <h1 className="display mt-8 text-[17vw] leading-[0.85] sm:text-[13vw] lg:text-[11.5vw]">
-              Visualize
-              <br />
-              Impossible
+              <MaskedLines lines={["Visualize", "Impossible"]} />
+
             </h1>
             <div className="mt-10 grid gap-10 border-t border-line/60 pt-8 lg:grid-cols-[1.1fr_1fr] lg:items-end">
               <p className="max-w-xl text-base leading-relaxed text-foreground/80 sm:text-lg">
@@ -134,7 +133,9 @@ function Index() {
                 </SolidButton>
               </div>
             </div>
+            <ScrollCue className="mt-10" />
           </div>
+
         </section>
 
 
