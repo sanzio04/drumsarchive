@@ -323,18 +323,6 @@ export function useParallax<T extends HTMLElement>(intensity = 40) {
   return ref;
 }
 
-/** Cinematic scroll-down cue for the hero. */
-export function ScrollCue({ className }: { className?: string }) {
-  return (
-    <div className={cn("flex items-center gap-4", className)} aria-hidden>
-      <span className="text-[0.625rem] uppercase tracking-[0.28em] text-foreground/60">Scroll</span>
-      <span className="relative h-10 w-px overflow-hidden bg-foreground/20">
-        <span className="scroll-cue absolute inset-x-0 top-0 h-4 bg-foreground/80" />
-      </span>
-    </div>
-  );
-}
-
 /** Media tile with slow parallax drift and a custom follow "Play" cursor. */
 export function PlayCursorMedia({
   src,
