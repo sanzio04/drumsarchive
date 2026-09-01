@@ -334,3 +334,75 @@ export function ScrollCue({ className }: { className?: string }) {
     </div>
   );
 }
+
+/** Media tile with slow parallax drift and a custom follow "Play" cursor. */
+export function PlayCursorMedia({
+  src,
+  alt,
+  onClick,
+  label = "Play",
+  className,
+}: {
+  src: string;
+  alt: string;
+  onClick: () => void;
+  label?: string;
+  className?: string;
+}) {
+  const parallaxRef = useParallax<HTMLImageElement>(28);
+  const canHover = useCanHover();
+  const reduced = usePrefersReducedMotion();
+  const wrapRef = useRef<HTMLButtonElement | null>(null);
+  const cursorRef = useRef<HTMLSpanElement | null>(null);
+  const [inside, setInside] = useState(false);
+  const showCursor = canHover && !reduced;
+
+  const onMove = useCallback(
+    (event: React.PointerEvent<HTMLButtonElement>) => {
+      if (!showCursor) return;
+      const wrap = wrapRef.current;
+      const cursor = cursorRef.current;
+      if (!wrap || !cursor) return;
+      const rect = wrap.getBoundingClientRect();
+      cursor.style.transform = `translate3d(${event.clientX - rect.left}px, ${event.clientY - rect.top}px, 0) translate(-50%, -50%)`;
+    },
+    [showCursor],
+  );
+
+  return (
+    <button
+      type="button"
+      ref={wrapRef}
+      onClick={onClick}
+      onPointerMove={onMove}
+      onPointerEnter={() => setInside(true)}
+      onPointerLeave={() => setInside(false)}
+      aria-label={`${label}: ${alt}`}
+      className={cn(
+        "group relative block aspect-video w-full overflow-hidden border border-line bg-black",
+        showCursor && "cursor-none",
+        className,
+      )}
+    >
+      <img
+        ref={parallaxRef}
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        className="h-[112%] w-full -translate-y-[6%] object-cover will-change-transform"
+        style={{ transform: "translateY(calc(-6% + var(--parallax, 0px)))" }}
+      />
+      {showCursor && (
+        <span
+          ref={cursorRef}
+          aria-hidden
+          data-active={inside}
+          className="pointer-events-none absolute left-0 top-0 z-10 grid h-24 w-24 place-items-center rounded-full border border-foreground/70 bg-background/30 text-[0.625rem] uppercase tracking-[0.24em] text-foreground opacity-0 backdrop-blur-sm transition-opacity duration-300 data-[active=true]:opacity-100"
+        >
+          {label}
+        </span>
+      )}
+    </button>
+  );
+}
