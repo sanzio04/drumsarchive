@@ -209,7 +209,7 @@ export function SolidButton({
         aria-hidden
         className="pointer-events-none absolute inset-0 border border-foreground opacity-0 transition-opacity duration-500 group-hover:opacity-100"
       />
-    </a>
+    </Tag>
   );
 }
 
