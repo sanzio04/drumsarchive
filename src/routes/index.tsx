@@ -6,7 +6,7 @@ import { Nav } from "@/components/drums/Nav";
 import { ProjectCard } from "@/components/drums/ProjectCard";
 import { ServiceRow } from "@/components/drums/ServiceRow";
 import { VideoModal } from "@/components/drums/VideoModal";
-import { OutlineButton, Reveal, SectionLabel, SolidButton } from "@/components/drums/ui";
+import { CountUp, OutlineButton, Reveal, SectionLabel, SolidButton } from "@/components/drums/ui";
 import {
   COLLABORATORS,
   FESTIVAL_FILMS,
@@ -178,7 +178,7 @@ function Index() {
                   className="border-t border-background/20 pt-6 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0 sm:first:border-l-0 sm:first:pl-0 lg:pl-8"
                 >
                   <dt className="display text-[11vw] leading-none sm:text-5xl lg:text-6xl">
-                    {stat.value}
+                    <CountUp value={stat.value} />
                   </dt>
                   <dd className="mt-3 text-xs uppercase tracking-[0.2em] text-background/70">
                     {stat.label}
