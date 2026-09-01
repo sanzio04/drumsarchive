@@ -199,15 +199,13 @@ function Index() {
           <div className="mx-auto max-w-[1500px]">
             <SectionLabel>Festival</SectionLabel>
             <Reveal className="mt-12 grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:gap-16">
-              <div className="relative aspect-video w-full overflow-hidden border border-line bg-black">
-                <img
-                  src={LOGOS.homebody}
-                  alt="Homebody — AI short film still"
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover"
-                />
-              </div>
+              <PlayCursorMedia
+                src={LOGOS.homebody}
+                alt="Homebody — AI short film still"
+                label="Play"
+                onClick={() => setVideo({ id: HOMEBODY_ID, title: "Homebody — AI Short Film" })}
+              />
+
               <div className="flex flex-col justify-center">
                 <h2 className="display text-[13vw] leading-none sm:text-6xl">Homebody</h2>
                 <p className="mt-5 text-xs uppercase tracking-[0.2em] text-muted-foreground">
