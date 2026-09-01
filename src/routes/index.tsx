@@ -350,10 +350,12 @@ function Index() {
         >
           <div className="mx-auto max-w-5xl">
             <h2 className="display text-[11vw] leading-[0.95] sm:text-6xl lg:text-7xl">
-              Your vision doesn&rsquo;t need to be filmable.
+              <MaskedLines lines={["Your vision doesn\u2019t", "need to be filmable."]} />
             </h2>
-            <p className="mt-8 text-lg text-muted-foreground">It needs to be unforgettable.</p>
-            <div className="mt-12 flex flex-col items-center gap-6">
+            <Reveal delay={120}>
+              <p className="mt-8 text-lg text-muted-foreground">It needs to be unforgettable.</p>
+            </Reveal>
+            <Reveal delay={220} className="mt-12 flex flex-col items-center gap-6">
               <SolidButton
                 href={WHATSAPP_URL}
                 target="_blank"
@@ -368,8 +370,11 @@ function Index() {
               >
                 archivedrums@gmail.com
               </a>
-            </div>
-            <ContactForm />
+            </Reveal>
+            <Reveal delay={300}>
+              <ContactForm />
+            </Reveal>
+
           </div>
         </section>
       </main>
