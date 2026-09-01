@@ -297,17 +297,14 @@ function Index() {
             </p>
             <ul className="mt-16">
               {SERVICES.map((service) => (
-                <Reveal as="li" key={service.index} className="group border-t border-line last:border-b">
-                  <div className="grid gap-4 py-8 transition-transform duration-500 group-hover:translate-x-2 sm:grid-cols-[auto_1fr_1fr] sm:gap-10 sm:py-10">
-                    <span className="eyebrow pt-2">{service.index}</span>
-                    <h3 className="display text-[8vw] leading-none sm:text-4xl">{service.title}</h3>
-                    <div className="text-sm leading-relaxed text-muted-foreground">
-                      <p>{service.description}</p>
-                      <p className="mt-4 text-xs uppercase tracking-[0.16em] text-foreground/80">
-                        Ideal for: {service.ideal}
-                      </p>
-                    </div>
-                  </div>
+                <Reveal as="li" key={service.index}>
+                  <ServiceRow
+                    service={service}
+                    expanded={openService === service.index}
+                    onToggle={() =>
+                      setOpenService((cur) => (cur === service.index ? null : service.index))
+                    }
+                  />
                 </Reveal>
               ))}
             </ul>
