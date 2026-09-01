@@ -320,7 +320,7 @@ function Index() {
               Selected Collaborations, Platforms &amp; Screenings
             </h2>
           </div>
-          <div className="mt-14 overflow-hidden border-y border-line py-10">
+          <div className="marquee-viewport mt-14 overflow-x-auto overflow-y-hidden border-y border-line py-10 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <div className="marquee-track flex w-max items-center gap-16 px-8 sm:gap-24">
               {[...COLLABORATORS, ...COLLABORATORS].map((logo, i) => (
                 <div
