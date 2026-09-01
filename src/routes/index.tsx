@@ -7,7 +7,7 @@ import { Nav } from "@/components/drums/Nav";
 import { ProjectCard } from "@/components/drums/ProjectCard";
 import { ServiceRow } from "@/components/drums/ServiceRow";
 import { VideoModal } from "@/components/drums/VideoModal";
-import { CountUp, OutlineButton, Reveal, SectionLabel, SolidButton } from "@/components/drums/ui";
+import { CountUp, MaskedLines, OutlineButton, Reveal, ScrollCue, SectionLabel, SolidButton } from "@/components/drums/ui";
 import {
   COLLABORATORS,
   FESTIVAL_FILMS,
