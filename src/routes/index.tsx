@@ -303,6 +303,7 @@ function Index() {
                   <ServiceRow
                     service={service}
                     expanded={openService === service.index}
+                    anyExpanded={openService !== null}
                     onToggle={() =>
                       setOpenService((cur) => (cur === service.index ? null : service.index))
                     }
