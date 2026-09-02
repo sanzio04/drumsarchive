@@ -6,6 +6,16 @@ import stillLawn from "@/assets/archive-still-lawn.png.asset.json";
 import stillStorm from "@/assets/archive-still-storm.png.asset.json";
 import stillAntagonist from "@/assets/archive-still-antagonist.png.asset.json";
 import stillPoster from "@/assets/archive-still-poster.jpg.asset.json";
+import v2Grok from "@/assets/archive-v02-grok.mp4.asset.json";
+import v2Steady from "@/assets/archive-v02-steady.mp4.asset.json";
+import v2StillCam from "@/assets/archive-v02-still-cam.mp4.asset.json";
+import v2P1244 from "@/assets/archive-v02-prompt-1244.mp4.asset.json";
+import v2P1114 from "@/assets/archive-v02-prompt-1114.mp4.asset.json";
+import v2P1109 from "@/assets/archive-v02-prompt-1109.mp4.asset.json";
+import v2GridA from "@/assets/archive-v02-grid-a.jpeg.asset.json";
+import v2GridB from "@/assets/archive-v02-grid-b.jpeg.asset.json";
+import v2GridC from "@/assets/archive-v02-grid-c.jpeg.asset.json";
+import v2GridD from "@/assets/archive-v02-grid-d.jpeg.asset.json";
 
 export type ArchiveClip = { title: string; src: string };
 export type ArchiveStill = { title: string; src: string };
