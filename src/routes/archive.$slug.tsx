@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ARCHIVE_PIECES, archiveInquiryUrl, getArchivePiece } from "@/components/drums/archive";
 import { LOGOS, MAILTO } from "@/components/drums/data";
-import { OutlineButton, Reveal, SectionLabel, SolidButton } from "@/components/drums/ui";
+import { Reveal, SectionLabel, SolidButton } from "@/components/drums/ui";
 
 export const Route = createFileRoute("/archive/$slug")({
   loader: ({ params }) => {
