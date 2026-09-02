@@ -16,6 +16,16 @@ import v2GridA from "@/assets/archive-v02-grid-a.jpeg.asset.json";
 import v2GridB from "@/assets/archive-v02-grid-b.jpeg.asset.json";
 import v2GridC from "@/assets/archive-v02-grid-c.jpeg.asset.json";
 import v2GridD from "@/assets/archive-v02-grid-d.jpeg.asset.json";
+import v3JanReels from "@/assets/archive-v03-jan-reels.mp4.asset.json";
+import v3MonsterPet from "@/assets/archive-v03-monster-pet.mp4.asset.json";
+import v3Primo from "@/assets/archive-v03-portrait-primo.png.asset.json";
+import v3TeeA from "@/assets/archive-v03-tee-a.jpeg.asset.json";
+import v3TeeB from "@/assets/archive-v03-tee-b.jpeg.asset.json";
+import v3TeeC from "@/assets/archive-v03-tee-c.jpeg.asset.json";
+import v3TeeD from "@/assets/archive-v03-tee-d.jpeg.asset.json";
+import v3AnalogCar from "@/assets/archive-v03-analog-car.png.asset.json";
+import v3Storm from "@/assets/archive-v03-storm-figure.png.asset.json";
+import v3FireSuit from "@/assets/archive-v03-fire-suit.png.asset.json";
 
 export type ArchiveClip = { title: string; src: string };
 export type ArchiveStill = { title: string; src: string };
@@ -95,16 +105,29 @@ export const ARCHIVE_PIECES: ArchivePiece[] = [
     title: "Archive Vol. 03",
     category: "AI Film Fragments & Stills",
     year: "2026",
-    status: "in-preparation",
+    status: "published",
     summary:
-      "The third volume of the DRUMS Archive — reserved for the next batch of fragments and cinematic stills from the studio pipeline.",
+      "Character, portrait, and brand-world studies — analog-leaning frames, DRUMS wardrobe portraits, and two moving fragments built in-house.",
     description: [
-      "Vol. 03 is in preparation and will open once the next batch of material is finished.",
-      "Each volume stays in the same format: moving frames first, stills second, every piece referenced by name.",
-      "Reach out if you want early access to what is being built for this volume.",
+      "Vol. 03 moves closer to people: lens-driven portraits, film-stock grain, and the DRUMS identity worn in real space.",
+      "The moving pieces sit at opposite ends of the studio range — a reels-format cut and a creature study graded for scale.",
+      "Reference any frame or fragment by name and we will develop it into a campaign, film, or brand world.",
     ],
-    clips: [],
-    stills: [],
+    cover: v3Primo.url,
+    clips: [
+      { title: "Jan Reels VIII", src: v3JanReels.url },
+      { title: "The Monster Pet", src: v3MonsterPet.url },
+    ],
+    stills: [
+      { title: "Primo Portrait", src: v3Primo.url },
+      { title: "Superia Drive", src: v3AnalogCar.url },
+      { title: "Storm Figure", src: v3Storm.url },
+      { title: "Ceremony Suit", src: v3FireSuit.url },
+      { title: "DRUMS Wardrobe I", src: v3TeeA.url },
+      { title: "DRUMS Wardrobe II", src: v3TeeB.url },
+      { title: "DRUMS Wardrobe III", src: v3TeeC.url },
+      { title: "DRUMS Wardrobe IV", src: v3TeeD.url },
+    ],
   },
 ];
 
