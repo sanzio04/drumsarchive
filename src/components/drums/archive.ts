@@ -105,16 +105,29 @@ export const ARCHIVE_PIECES: ArchivePiece[] = [
     title: "Archive Vol. 03",
     category: "AI Film Fragments & Stills",
     year: "2026",
-    status: "in-preparation",
+    status: "published",
     summary:
-      "The third volume of the DRUMS Archive — reserved for the next batch of fragments and cinematic stills from the studio pipeline.",
+      "Character, portrait, and brand-world studies — analog-leaning frames, DRUMS wardrobe portraits, and two moving fragments built in-house.",
     description: [
-      "Vol. 03 is in preparation and will open once the next batch of material is finished.",
-      "Each volume stays in the same format: moving frames first, stills second, every piece referenced by name.",
-      "Reach out if you want early access to what is being built for this volume.",
+      "Vol. 03 moves closer to people: lens-driven portraits, film-stock grain, and the DRUMS identity worn in real space.",
+      "The moving pieces sit at opposite ends of the studio range — a reels-format cut and a creature study graded for scale.",
+      "Reference any frame or fragment by name and we will develop it into a campaign, film, or brand world.",
     ],
-    clips: [],
-    stills: [],
+    cover: v3Primo.url,
+    clips: [
+      { title: "Jan Reels VIII", src: v3JanReels.url },
+      { title: "The Monster Pet", src: v3MonsterPet.url },
+    ],
+    stills: [
+      { title: "Primo Portrait", src: v3Primo.url },
+      { title: "Superia Drive", src: v3AnalogCar.url },
+      { title: "Storm Figure", src: v3Storm.url },
+      { title: "Ceremony Suit", src: v3FireSuit.url },
+      { title: "DRUMS Wardrobe I", src: v3TeeA.url },
+      { title: "DRUMS Wardrobe II", src: v3TeeB.url },
+      { title: "DRUMS Wardrobe III", src: v3TeeC.url },
+      { title: "DRUMS Wardrobe IV", src: v3TeeD.url },
+    ],
   },
 ];
 
