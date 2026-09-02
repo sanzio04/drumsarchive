@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 import showreelAsset from "@/assets/showreel.mp4.asset.json";
+import { ARCHIVE_PIECES } from "@/components/drums/archive";
 import { ContactForm } from "@/components/drums/ContactForm";
 import { Nav } from "@/components/drums/Nav";
 import { ProjectCard } from "@/components/drums/ProjectCard";
