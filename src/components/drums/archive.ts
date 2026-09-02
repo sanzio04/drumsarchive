@@ -1,4 +1,4 @@
-import videoProject6 from "@/assets/archive-video-project-6.mp4.asset.json";
+import v1VerticalFragment from "@/assets/archive-vol01-new-clip.mp4.asset.json";
 import aiCinema from "@/assets/archive-ai-cinema.mp4.asset.json";
 import dontAskMe from "@/assets/archive-dont-ask-me.mp4.asset.json";
 import gracias from "@/assets/archive-gracias.mp4.asset.json";
@@ -62,7 +62,7 @@ export const ARCHIVE_PIECES: ArchivePiece[] = [
       { title: "You Call It AI Cinema", src: aiCinema.url },
       { title: "Don't Ask Me", src: dontAskMe.url },
       { title: "Gracias", src: gracias.url },
-      { title: "Project 6", src: videoProject6.url },
+      { title: "Vertical Fragment", src: v1VerticalFragment.url },
     ],
     stills: [
       { title: "I Hate That You're Happy Without Me", src: stillPoster.url },
