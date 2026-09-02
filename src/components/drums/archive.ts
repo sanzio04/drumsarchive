@@ -16,6 +16,16 @@ import v2GridA from "@/assets/archive-v02-grid-a.jpeg.asset.json";
 import v2GridB from "@/assets/archive-v02-grid-b.jpeg.asset.json";
 import v2GridC from "@/assets/archive-v02-grid-c.jpeg.asset.json";
 import v2GridD from "@/assets/archive-v02-grid-d.jpeg.asset.json";
+import v3JanReels from "@/assets/archive-v03-jan-reels.mp4.asset.json";
+import v3MonsterPet from "@/assets/archive-v03-monster-pet.mp4.asset.json";
+import v3Primo from "@/assets/archive-v03-portrait-primo.png.asset.json";
+import v3TeeA from "@/assets/archive-v03-tee-a.jpeg.asset.json";
+import v3TeeB from "@/assets/archive-v03-tee-b.jpeg.asset.json";
+import v3TeeC from "@/assets/archive-v03-tee-c.jpeg.asset.json";
+import v3TeeD from "@/assets/archive-v03-tee-d.jpeg.asset.json";
+import v3AnalogCar from "@/assets/archive-v03-analog-car.png.asset.json";
+import v3Storm from "@/assets/archive-v03-storm-figure.png.asset.json";
+import v3FireSuit from "@/assets/archive-v03-fire-suit.png.asset.json";
 
 export type ArchiveClip = { title: string; src: string };
 export type ArchiveStill = { title: string; src: string };
