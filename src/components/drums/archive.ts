@@ -6,6 +6,16 @@ import stillLawn from "@/assets/archive-still-lawn.png.asset.json";
 import stillStorm from "@/assets/archive-still-storm.png.asset.json";
 import stillAntagonist from "@/assets/archive-still-antagonist.png.asset.json";
 import stillPoster from "@/assets/archive-still-poster.jpg.asset.json";
+import v2Grok from "@/assets/archive-v02-grok.mp4.asset.json";
+import v2Steady from "@/assets/archive-v02-steady.mp4.asset.json";
+import v2StillCam from "@/assets/archive-v02-still-cam.mp4.asset.json";
+import v2P1244 from "@/assets/archive-v02-prompt-1244.mp4.asset.json";
+import v2P1114 from "@/assets/archive-v02-prompt-1114.mp4.asset.json";
+import v2P1109 from "@/assets/archive-v02-prompt-1109.mp4.asset.json";
+import v2GridA from "@/assets/archive-v02-grid-a.jpeg.asset.json";
+import v2GridB from "@/assets/archive-v02-grid-b.jpeg.asset.json";
+import v2GridC from "@/assets/archive-v02-grid-c.jpeg.asset.json";
+import v2GridD from "@/assets/archive-v02-grid-d.jpeg.asset.json";
 
 export type ArchiveClip = { title: string; src: string };
 export type ArchiveStill = { title: string; src: string };
@@ -56,16 +66,29 @@ export const ARCHIVE_PIECES: ArchivePiece[] = [
     title: "Archive Vol. 02",
     category: "AI Film Fragments & Stills",
     year: "2026",
-    status: "in-preparation",
+    status: "published",
     summary:
-      "The second volume of the DRUMS Archive — sequences and frames currently being selected, graded, and prepared for release.",
+      "A coastal architecture and lifestyle study — still-camera sequences and sunlit frame grids built inside the DRUMS pipeline.",
     description: [
-      "Vol. 02 is in preparation. The page is live so pieces can be published the moment they are approved.",
-      "Expect the same working material as Vol. 01: atmosphere tests, character studies, and camera language explorations produced in-house.",
-      "Looking for something specific before the volume opens? Ask and we will share the relevant frames directly.",
+      "Vol. 02 turns to quiet space: concrete volumes on a headland, soft daylight, and a single presence moving through the frame.",
+      "The moving pieces are locked-off and steady-camera studies. The stills are full frame grids from the same visual world, shot across golden hour and midday light.",
+      "Reference any sequence or grid by name and we will develop it into a campaign, film, or brand world.",
     ],
-    clips: [],
-    stills: [],
+    cover: v2GridC.url,
+    clips: [
+      { title: "Headland Study", src: v2Grok.url },
+      { title: "Steady Frame 1080p", src: v2Steady.url },
+      { title: "Still Camera 1080p", src: v2StillCam.url },
+      { title: "Visual Prompt I", src: v2P1109.url },
+      { title: "Visual Prompt II", src: v2P1114.url },
+      { title: "Visual Prompt III", src: v2P1244.url },
+    ],
+    stills: [
+      { title: "Golden Hour Grid I", src: v2GridA.url },
+      { title: "Golden Hour Grid II", src: v2GridB.url },
+      { title: "Daylight Grid I", src: v2GridC.url },
+      { title: "Daylight Grid II", src: v2GridD.url },
+    ],
   },
   {
     slug: "vol-03",
