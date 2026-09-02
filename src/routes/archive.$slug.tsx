@@ -114,7 +114,7 @@ function ArchivePiecePage() {
                         controls
                         playsInline
                         preload="metadata"
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-contain"
                       >
                         <source src={clip.src} type="video/mp4" />
                       </video>
