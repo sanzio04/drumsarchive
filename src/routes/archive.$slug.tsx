@@ -221,13 +221,19 @@ function ArchivePiecePage() {
                 {others.map((item) => (
                   <li key={item.slug}>
                     <Link to="/archive/$slug" params={{ slug: item.slug }} className="group block">
-                      <div className="aspect-video w-full overflow-hidden border border-line bg-black">
-                        <img
-                          src={item.cover}
-                          alt={item.title}
-                          loading="lazy"
-                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                        />
+                      <div className="flex aspect-video w-full items-center justify-center overflow-hidden border border-line bg-black">
+                        {item.cover ? (
+                          <img
+                            src={item.cover}
+                            alt={item.title}
+                            loading="lazy"
+                            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                          />
+                        ) : (
+                          <span className="display text-2xl text-muted-foreground">
+                            {item.title.replace("Archive ", "")}
+                          </span>
+                        )}
                       </div>
                       <h3 className="display border-b border-line py-4 text-lg">{item.title}</h3>
                     </Link>
