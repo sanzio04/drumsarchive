@@ -15,9 +15,10 @@ export type ArchivePiece = {
   title: string;
   category: string;
   year: string;
+  status: "published" | "in-preparation";
   summary: string;
   description: string[];
-  cover: string;
+  cover?: string;
   clips: ArchiveClip[];
   stills: ArchiveStill[];
 };
@@ -28,6 +29,7 @@ export const ARCHIVE_PIECES: ArchivePiece[] = [
     title: "Archive Vol. 01",
     category: "AI Film Fragments & Stills",
     year: "2026",
+    status: "published",
     summary:
       "An open archive of DRUMS film fragments, tests, and cinematic stills — the raw material behind our finished productions.",
     description: [
@@ -48,6 +50,38 @@ export const ARCHIVE_PIECES: ArchivePiece[] = [
       { title: "Storm Bearer", src: stillStorm.url },
       { title: "The Antagonist", src: stillAntagonist.url },
     ],
+  },
+  {
+    slug: "vol-02",
+    title: "Archive Vol. 02",
+    category: "AI Film Fragments & Stills",
+    year: "2026",
+    status: "in-preparation",
+    summary:
+      "The second volume of the DRUMS Archive — sequences and frames currently being selected, graded, and prepared for release.",
+    description: [
+      "Vol. 02 is in preparation. The page is live so pieces can be published the moment they are approved.",
+      "Expect the same working material as Vol. 01: atmosphere tests, character studies, and camera language explorations produced in-house.",
+      "Looking for something specific before the volume opens? Ask and we will share the relevant frames directly.",
+    ],
+    clips: [],
+    stills: [],
+  },
+  {
+    slug: "vol-03",
+    title: "Archive Vol. 03",
+    category: "AI Film Fragments & Stills",
+    year: "2026",
+    status: "in-preparation",
+    summary:
+      "The third volume of the DRUMS Archive — reserved for the next batch of fragments and cinematic stills from the studio pipeline.",
+    description: [
+      "Vol. 03 is in preparation and will open once the next batch of material is finished.",
+      "Each volume stays in the same format: moving frames first, stills second, every piece referenced by name.",
+      "Reach out if you want early access to what is being built for this volume.",
+    ],
+    clips: [],
+    stills: [],
   },
 ];
 
