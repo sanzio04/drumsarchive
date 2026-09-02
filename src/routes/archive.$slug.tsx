@@ -170,8 +170,12 @@ function ArchivePiecePage() {
               >
                 Inquire on WhatsApp
               </SolidButton>
-              <Link to="/" hash="contact">
-                <OutlineButton as="span">Use the Contact Form</OutlineButton>
+              <Link
+                to="/"
+                hash="contact"
+                className="border border-foreground/60 px-8 py-4 text-[0.7rem] font-medium uppercase tracking-[0.18em] transition-colors hover:bg-foreground hover:text-background"
+              >
+                Use the Contact Form
               </Link>
             </div>
             <a
