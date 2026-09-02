@@ -102,56 +102,82 @@ function ArchivePiecePage() {
           </div>
         </section>
 
-        <section className="border-t border-line px-5 py-20 sm:px-8 sm:py-24">
-          <div className="mx-auto max-w-[1500px]">
-            <SectionLabel>Moving Frames</SectionLabel>
-            <ul className="mt-12 grid gap-10 sm:grid-cols-2">
-              {piece.clips.map((clip, i) => (
-                <Reveal as="li" key={clip.title} delay={(i % 2) * 90}>
-                  <div className="aspect-video w-full overflow-hidden border border-line bg-black">
-                    <video
-                      controls
-                      playsInline
-                      preload="metadata"
-                      className="h-full w-full object-cover"
-                    >
-                      <source src={clip.src} type="video/mp4" />
-                    </video>
-                  </div>
-                  <div className="border-b border-line py-5">
-                    <h2 className="display text-lg sm:text-xl">{clip.title}</h2>
-                  </div>
-                </Reveal>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section className="border-t border-line px-5 py-20 sm:px-8 sm:py-24">
-          <div className="mx-auto max-w-[1500px]">
-            <SectionLabel>Stills</SectionLabel>
-            <ul className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {piece.stills.map((still, i) => (
-                <Reveal as="li" key={still.title} delay={(i % 3) * 80}>
-                  <figure>
-                    <div className="aspect-[4/3] w-full overflow-hidden border border-line bg-black">
-                      <img
-                        src={still.src}
-                        alt={`${still.title} — DRUMS archive still`}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
-                      />
+        {piece.clips.length > 0 && (
+          <section className="border-t border-line px-5 py-20 sm:px-8 sm:py-24">
+            <div className="mx-auto max-w-[1500px]">
+              <SectionLabel>Moving Frames</SectionLabel>
+              <ul className="mt-12 grid gap-10 sm:grid-cols-2">
+                {piece.clips.map((clip, i) => (
+                  <Reveal as="li" key={clip.title} delay={(i % 2) * 90}>
+                    <div className="aspect-video w-full overflow-hidden border border-line bg-black">
+                      <video
+                        controls
+                        playsInline
+                        preload="metadata"
+                        className="h-full w-full object-cover"
+                      >
+                        <source src={clip.src} type="video/mp4" />
+                      </video>
                     </div>
-                    <figcaption className="border-b border-line py-4 text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                      {still.title}
-                    </figcaption>
-                  </figure>
-                </Reveal>
-              ))}
-            </ul>
-          </div>
-        </section>
+                    <div className="border-b border-line py-5">
+                      <h2 className="display text-lg sm:text-xl">{clip.title}</h2>
+                    </div>
+                  </Reveal>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+
+        {piece.stills.length > 0 && (
+          <section className="border-t border-line px-5 py-20 sm:px-8 sm:py-24">
+            <div className="mx-auto max-w-[1500px]">
+              <SectionLabel>Stills</SectionLabel>
+              <ul className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                {piece.stills.map((still, i) => (
+                  <Reveal as="li" key={still.title} delay={(i % 3) * 80}>
+                    <figure>
+                      <div className="aspect-[4/3] w-full overflow-hidden border border-line bg-black">
+                        <img
+                          src={still.src}
+                          alt={`${still.title} — DRUMS archive still`}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+                        />
+                      </div>
+                      <figcaption className="border-b border-line py-4 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                        {still.title}
+                      </figcaption>
+                    </figure>
+                  </Reveal>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+
+        {piece.clips.length === 0 && piece.stills.length === 0 && (
+          <section className="border-t border-line px-5 py-20 sm:px-8 sm:py-24">
+            <div className="mx-auto max-w-[1500px]">
+              <SectionLabel>In Preparation</SectionLabel>
+              <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {[0, 1, 2].map((n) => (
+                  <div
+                    key={n}
+                    className="flex aspect-video items-center justify-center border border-dashed border-line text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground"
+                  >
+                    Frame Pending
+                  </div>
+                ))}
+              </div>
+              <p className="mt-10 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                This volume is being graded and selected. Pieces appear here as soon as they are
+                approved — reach out below to be notified or to request early access.
+              </p>
+            </div>
+          </section>
+        )}
 
         <section className="border-t border-line px-5 py-24 text-center sm:px-8 sm:py-28">
           <div className="mx-auto max-w-3xl">
