@@ -283,6 +283,49 @@ function Index() {
           </div>
         </section>
 
+        {/* ARCHIVE */}
+        <section id="archive" className="border-t border-line px-5 py-24 sm:px-8 sm:py-32">
+          <div className="mx-auto max-w-[1500px]">
+            <SectionLabel>Archive</SectionLabel>
+            <h2 className="display mt-10 max-w-4xl text-[12vw] leading-[0.95] sm:text-6xl lg:text-7xl">
+              The DRUMS Archive
+            </h2>
+            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+              Film fragments, tests, and cinematic stills from inside our pipeline. Open each volume
+              to view the full gallery and reference a specific piece in your inquiry.
+            </p>
+            <ul className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+              {ARCHIVE_PIECES.map((piece, i) => (
+                <Reveal as="li" key={piece.slug} delay={(i % 3) * 90}>
+                  <Link
+                    to="/archive/$slug"
+                    params={{ slug: piece.slug }}
+                    className="group block"
+                  >
+                    <div className="aspect-video w-full overflow-hidden border border-line bg-black">
+                      <img
+                        src={piece.cover}
+                        alt={`${piece.title} — DRUMS archive cover`}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                    <div className="border-b border-line py-5">
+                      <h3 className="display text-xl">{piece.title}</h3>
+                      <p className="mt-2 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                        {piece.category} · {piece.clips.length + piece.stills.length} pieces
+                      </p>
+                    </div>
+                  </Link>
+                </Reveal>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+
+
 
         {/* SERVICES */}
         <section id="services" className="border-t border-line px-5 py-24 sm:px-8 sm:py-32">
