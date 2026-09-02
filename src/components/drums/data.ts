@@ -182,10 +182,10 @@ export const STATS = [
 
 export const NAV_LINKS = [
   { label: "Work", href: "#work" },
+  { label: "Archive", href: "#archive" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Recognition", href: "#recognition" },
-  
   { label: "Contact", href: "#contact" },
 ];
 
