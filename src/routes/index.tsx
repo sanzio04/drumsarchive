@@ -448,7 +448,7 @@ function Index() {
               rel="noreferrer noopener"
               className="text-muted-foreground transition-colors hover:text-foreground"
             >
-              Instagram — @drums.archive
+              Instagram — @drums__archive
             </a>
             <a
               href={MAILTO}
