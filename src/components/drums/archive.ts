@@ -26,6 +26,9 @@ import v3TeeD from "@/assets/archive-v03-tee-d.jpeg.asset.json";
 import v3AnalogCar from "@/assets/archive-v03-analog-car.png.asset.json";
 import v3Storm from "@/assets/archive-v03-storm-figure.png.asset.json";
 import v3FireSuit from "@/assets/archive-v03-fire-suit.png.asset.json";
+import v4Anubis from "@/assets/archive-v04-anubis.mp4.asset.json";
+import v4PerfectBalance from "@/assets/archive-v04-perfect-balance.mp4.asset.json";
+import v4Cover from "@/assets/archive-v04-cover.jpg.asset.json";
 
 export type ArchiveClip = { title: string; src: string };
 export type ArchiveStill = { title: string; src: string };
@@ -128,6 +131,26 @@ export const ARCHIVE_PIECES: ArchivePiece[] = [
       { title: "DRUMS Wardrobe III", src: v3TeeC.url },
       { title: "DRUMS Wardrobe IV", src: v3TeeD.url },
     ],
+  },
+  {
+    slug: "vol-04",
+    title: "Archive Vol. 04",
+    category: "Animation & Character Worlds",
+    year: "2026",
+    status: "published",
+    summary:
+      "Two animation studies exploring mythic scale, graphic composition, and character-led cinematic storytelling.",
+    description: [
+      "Vol. 04 represents the animation language developed at DRUMS: imagined characters, expansive worlds, and deliberate cinematic movement shaped into narrative fragments.",
+      "Anubis: Episode 2 builds a mythological confrontation at monumental scale. Perfect Balance shifts into a graphic, stylized world driven by fashion, typography, and controlled character motion.",
+      "Together, the films show how distinct animation treatments can be developed for original stories, campaigns, music, and branded worlds.",
+    ],
+    cover: v4Cover.url,
+    clips: [
+      { title: "Anubis: Episode 2", src: v4Anubis.url },
+      { title: "Perfect Balance", src: v4PerfectBalance.url },
+    ],
+    stills: [],
   },
 ];
 
