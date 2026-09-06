@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 import showreelAsset from "@/assets/showreel.mp4.asset.json";
 import { ARCHIVE_PIECES } from "@/components/drums/archive";
+import { ContactForm } from "@/components/drums/ContactForm";
 import { Nav } from "@/components/drums/Nav";
 import { ProjectCard } from "@/components/drums/ProjectCard";
 import { ServiceRow } from "@/components/drums/ServiceRow";
@@ -397,80 +398,36 @@ function Index() {
         {/* FINAL CTA */}
         <section
           id="contact"
-          className="grain relative overflow-hidden border-t border-line px-5 py-28 sm:px-8 sm:py-36"
+          className="grain relative overflow-hidden border-t border-line px-5 py-28 text-center sm:px-8 sm:py-36"
         >
-          <div className="mx-auto max-w-5xl text-center">
+          <div className="mx-auto max-w-5xl">
             <h2 className="display text-[11vw] leading-[0.95] sm:text-6xl lg:text-7xl">
               <MaskedLines lines={["Your vision doesn\u2019t", "need to be filmable."]} />
             </h2>
             <Reveal delay={120}>
-              <p className="mx-auto mt-8 max-w-xl text-lg text-muted-foreground">
-                It needs to be unforgettable.
-              </p>
+              <p className="mt-8 text-lg text-muted-foreground">It needs to be unforgettable.</p>
             </Reveal>
-          </div>
-
-          <Reveal delay={220} className="mx-auto mt-16 max-w-5xl">
-            <div className="grid gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-3">
-              <a
+            <Reveal delay={220} className="mt-12 flex flex-col items-center gap-6">
+              <SolidButton
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="group relative bg-background px-6 py-10 text-center transition-colors duration-500 hover:bg-foreground hover:text-background sm:py-14"
+                className="px-10 py-5"
               >
-                <span className="block text-[10px] uppercase tracking-[0.25em] text-muted-foreground group-hover:text-background/70">
-                  Quick chat
-                </span>
-                <span className="mt-3 block text-2xl font-semibold tracking-tight sm:text-3xl">
-                  WhatsApp
-                </span>
-                <span className="mt-2 block text-sm text-muted-foreground group-hover:text-background/70">
-                  +62 877-6043-4653
-                </span>
-              </a>
+                Create the Unfilmable
+              </SolidButton>
               <a
                 href={MAILTO}
-                className="group relative bg-background px-6 py-10 text-center transition-colors duration-500 hover:bg-foreground hover:text-background sm:py-14"
+                className="text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
               >
-                <span className="block text-[10px] uppercase tracking-[0.25em] text-muted-foreground group-hover:text-background/70">
-                  Write to us
-                </span>
-                <span className="mt-3 block text-2xl font-semibold tracking-tight sm:text-3xl">
-                  Email
-                </span>
-                <span className="mt-2 block break-words text-sm text-muted-foreground group-hover:text-background/70">
-                  archivedrums@gmail.com
-                </span>
+                archivedrums@gmail.com
               </a>
-              <a
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="group relative bg-background px-6 py-10 text-center transition-colors duration-500 hover:bg-foreground hover:text-background sm:py-14"
-              >
-                <span className="block text-[10px] uppercase tracking-[0.25em] text-muted-foreground group-hover:text-background/70">
-                  Follow the work
-                </span>
-                <span className="mt-3 block text-2xl font-semibold tracking-tight sm:text-3xl">
-                  Instagram
-                </span>
-                <span className="mt-2 block text-sm text-muted-foreground group-hover:text-background/70">
-                  @drums__archive
-                </span>
-              </a>
-            </div>
-          </Reveal>
+            </Reveal>
+            <Reveal delay={300}>
+              <ContactForm />
+            </Reveal>
 
-          <Reveal delay={300} className="mx-auto mt-14 max-w-5xl text-center">
-            <SolidButton
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="px-10 py-5"
-            >
-              Start an AI Production
-            </SolidButton>
-          </Reveal>
+          </div>
         </section>
       </main>
 
