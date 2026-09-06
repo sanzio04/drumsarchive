@@ -35,7 +35,7 @@ export const LOGOS = {
 
 export const WHATSAPP_URL =
   "https://wa.me/6287760434653?text=Hi%20DRUMS%2C%20I%27d%20like%20to%20discuss%20an%20AI%20video%20project.";
-export const INSTAGRAM_URL = "https://www.instagram.com/drums.archive/";
+export const INSTAGRAM_URL = "https://www.instagram.com/drums__archive/";
 export const MAILTO = "mailto:archivedrums@gmail.com";
 export const HOMEBODY_ID = "rLLMI7YvLiw";
 
