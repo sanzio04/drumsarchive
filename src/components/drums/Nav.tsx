@@ -70,14 +70,14 @@ export function Nav() {
         className="absolute inset-x-0 top-0 h-px origin-left bg-foreground/90"
         style={{ transform: `scaleX(${progress})` }}
       />
-      <div className="mx-auto flex max-w-[1500px] items-center justify-between px-5 py-4 sm:px-8">
-        <a href="#top" aria-label="DRUMS home" className="shrink-0">
+      <div className="mx-auto flex max-w-[1500px] items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <a href="#top" aria-label="DRUMS home" className="shrink-0 -ml-1 sm:-ml-2">
           <img
             src={LOGOS.drums}
             alt="DRUMS"
             width={140}
             height={40}
-            className="h-4 w-auto object-contain sm:h-5"
+            className="h-3.5 w-auto object-contain sm:h-4"
           />
         </a>
 
