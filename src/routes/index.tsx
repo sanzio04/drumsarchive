@@ -111,13 +111,6 @@ function Index() {
 
 
           <div className="relative z-10 mx-auto w-full max-w-[1500px]">
-            <img
-              src={LOGOS.drums}
-              alt="DRUMS"
-              width={220}
-              height={60}
-              className="h-8 w-auto object-contain sm:h-10"
-            />
             <h1 className="display mt-8 text-[17vw] leading-[0.85] sm:text-[13vw] lg:text-[11.5vw]">
               <MaskedLines lines={["Visualize", "Impossible"]} />
 
@@ -482,7 +475,7 @@ function Index() {
             width={160}
             height={44}
             loading="lazy"
-            className="h-7 w-auto object-contain"
+            className="h-5 w-auto object-contain"
           />
           <nav aria-label="Footer" className="flex flex-col gap-3 text-sm sm:items-end">
             <a

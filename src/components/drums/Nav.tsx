@@ -77,7 +77,7 @@ export function Nav() {
             alt="DRUMS"
             width={140}
             height={40}
-            className="h-7 w-auto object-contain sm:h-8"
+            className="h-4 w-auto object-contain sm:h-5"
           />
         </a>
 
