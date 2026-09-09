@@ -144,8 +144,8 @@ function Index() {
             <SectionLabel>About DRUMS</SectionLabel>
             <Reveal className="mt-12 grid gap-12 lg:grid-cols-[1.25fr_1fr] lg:gap-20">
               <h2 className="display text-[7vw] leading-[0.95] sm:text-5xl lg:text-6xl">
-                DRUMS is a pioneering advanced AI video generation agency from Indonesia, built by a
-                team of filmmakers, visual artists, and AI creators.
+                Pioneering advanced AI video generation agency from Indonesia, built by a team of
+                filmmakers, visual artists, and AI creators.
               </h2>
               <div className="space-y-6 text-sm leading-relaxed text-muted-foreground sm:text-base">
                 <p>
