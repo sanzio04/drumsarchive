@@ -160,6 +160,13 @@ export const SERVICES = [
       "Original AI-generated worlds developed around the identity, emotion, and rhythm of music.",
     ideal: "Artists, labels, singles, and album campaigns.",
   },
+  {
+    index: "05",
+    title: "AI Animation Maker",
+    description:
+      "Character-driven animation and kinetic motion pieces crafted with AI-assisted generation—from stylized worlds and expressive characters to narrative shorts and branded motion content.",
+    ideal: "Animated brand stories, explainer films, social motion, and experimental visual pieces.",
+  },
 ];
 
 export const COLLABORATORS: { name: string; src: string; invert?: boolean }[] = [
